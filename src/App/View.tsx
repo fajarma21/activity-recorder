@@ -9,7 +9,7 @@ import ToDo from './components/ToDo';
 import css from './View.module.scss';
 import useModalFormStore from '@/stores/useModalFormStore';
 
-// TODO: UI/UX improvement
+// TODO: sort by nearest date
 
 const App = () => {
   const displayModal = useModalFormStore((state) => state.display);
