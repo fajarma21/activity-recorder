@@ -15,8 +15,10 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: (id) => {
-          if (id.includes('node_modules')) return 'vendor';
-
+          if (id.includes('node_modules')) {
+            if (id.includes('antd')) return 'antd';
+            return 'vendor';
+          }
           return null;
         },
         chunkFileNames: 'assets/chunk-[name]-[hash].js',

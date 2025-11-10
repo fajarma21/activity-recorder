@@ -12,7 +12,6 @@
   "dependencies": {
     "antd": "^5.27.6",
     "dayjs": "^1.11.18",
-    "fajarma-package": "^1.2.0",
     "fajarma-react-lib": "^1.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
