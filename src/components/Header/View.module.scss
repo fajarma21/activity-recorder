@@ -1,0 +1,112 @@
+@use '@/styles/breakpoint.scss' as breakpoint;
+
+.wrapper {
+  position: relative;
+  z-index: 1;
+
+  .container {
+    position: relative;
+    z-index: 1;
+    padding: 16px 0;
+    display: flex;
+    align-items: center;
+
+    p {
+      margin: 0;
+    }
+
+    .textContainer {
+      overflow: hidden;
+      margin-left: 16px;
+      .date {
+        font-size: 1rem;
+        font-weight: normal;
+        opacity: 0.75;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      .greeting {
+        margin: 0;
+        font-size: 2rem;
+        line-height: normal;
+        text-transform: capitalize;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .spaceCircle {
+      flex: none;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+
+    .clock {
+      align-self: flex-start;
+      margin-left: auto;
+      opacity: 0.75;
+      font-weight: bold;
+
+      @include breakpoint.moreThan480 {
+        align-self: auto;
+        font-size: 2rem;
+      }
+    }
+
+    @include breakpoint.moreThan480 {
+      padding: 32px 0;
+    }
+  }
+
+  .background {
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    left: -5%;
+    width: 110%;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 0 0 50% 50%;
+
+    @include breakpoint.moreThan480 {
+      height: 200px;
+    }
+  }
+
+  &[data-time='morning'] {
+    .spaceCircle {
+      background-color: #ffe9a6;
+    }
+    .background {
+      background: radial-gradient(at center 0%, #aeedff 50%, #fffbcb);
+    }
+  }
+  &[data-time='afternoon'] {
+    .spaceCircle {
+      background-color: #ffe9a6;
+    }
+    .background {
+      background: radial-gradient(at center 0%, #87ceeb 50%, #e6f9ff);
+    }
+  }
+  &[data-time='night'] {
+    color: white;
+
+    .spaceCircle {
+      overflow: hidden;
+      background: radial-gradient(
+        circle at 70% 30%,
+        transparent 40%,
+        #dcdcdc 40%,
+        #dcdcdc
+      );
+    }
+    .background {
+      background: radial-gradient(at center 0%, #070b34 50%, #483475);
+    }
+  }
+}

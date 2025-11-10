@@ -1,0 +1,10 @@
+.container {
+  width: clamp(320px, 100%, 1024px);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+}

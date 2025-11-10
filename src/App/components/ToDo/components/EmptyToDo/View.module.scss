@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 200px;
+  color: var(--gray-dark);
+
+  p {
+    margin: 8px 0 16px;
+  }
+}

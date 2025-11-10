@@ -1,0 +1,12 @@
+@keyframes ticking {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.tick {
+  animation: ticking 1s steps(2) infinite;
+}

@@ -1,0 +1,26 @@
+.container {
+  cursor: pointer;
+  position: relative;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: all 140ms;
+
+  p {
+    margin: 0;
+  }
+
+  &:hover {
+    background-color: #e0ffff;
+    border-color: #beeeee;
+  }
+}
+
+.checkboxModifier {
+  width: 100%;
+}
+
+.sub {
+  font-size: 0.8rem;
+  color: var(--gray-dark);
+}
