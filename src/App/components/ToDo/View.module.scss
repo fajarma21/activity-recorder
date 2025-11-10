@@ -1,6 +1,7 @@
 @use '@/styles/breakpoint.scss' as breakpoint;
 
 .buttonContainer {
+  position: relative;
   button {
     position: fixed;
     bottom: 16px;
@@ -17,8 +18,6 @@
 
     button {
       position: unset;
-      bottom: unset;
-      right: unset;
     }
   }
 }

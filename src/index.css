@@ -13,7 +13,12 @@
   font-weight: 400;
 
   color: var(--foreground);
-  background-color: var(--background);
+  background: repeating-linear-gradient(
+    white,
+    white 35px,
+    #eaeaea 35px,
+    #eaeaea 36px
+  );
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

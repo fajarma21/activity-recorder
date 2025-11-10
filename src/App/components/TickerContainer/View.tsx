@@ -47,7 +47,7 @@ const TickerContainer = () => {
                 onClickEdit={() => openForm(openParam)}
                 onClose={hideTicker}
               >
-                <b>Lari Pagi</b> at {getFullDate(date)}
+                <b>{activityText}</b> at {getFullDate(date)}
               </Ticker>
             )
           );
