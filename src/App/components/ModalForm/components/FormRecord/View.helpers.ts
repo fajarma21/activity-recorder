@@ -22,7 +22,6 @@ export const getSingleActivity = (
       );
 
       if (exist) {
-        console.log(2, newData);
         return [
           {
             ...newData,
@@ -33,7 +32,6 @@ export const getSingleActivity = (
       }
     }
 
-    console.log(3, newData);
     return [newData];
   }
   return [];
