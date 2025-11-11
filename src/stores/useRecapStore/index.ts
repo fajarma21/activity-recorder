@@ -41,7 +41,7 @@ const useRecapStore = create<RecapStore>()(
                   count: newCount,
                   first: newFirst,
                   latest: newLatest,
-                  next: newLatest + (newLatest - newFirst) / newCount,
+                  next: (newLatest - newFirst) / (newCount - 1) + newLatest,
                 };
               }
               return item2;
