@@ -4,13 +4,13 @@ import determineDate from '@/helpers/determineDate';
 import getFullDate from '@/helpers/getFullDate';
 import useRecapStore from '@/stores/useRecapStore';
 import useRecordStore from '@/stores/useRecordStore';
-import useTickerStore from '@/stores/useTickerStore';
+import useToasterStore from '@/stores/useToasterStore';
 import type { ActivityRecap } from '@/types';
 
 import type { EstToDoProps } from './View.types';
 
 const EstToDo = ({ data }: EstToDoProps) => {
-  const showTicker = useTickerStore((state) => state.showTicker);
+  const showToaster = useToasterStore((state) => state.showToaster);
 
   const addRecord = useRecordStore((state) => state.addRecord);
   const addRecap = useRecapStore((state) => state.addRecap);
@@ -26,7 +26,7 @@ const EstToDo = ({ data }: EstToDoProps) => {
 
     addRecord(newItem);
     addRecap(newItem);
-    showTicker(newItem);
+    showToaster(newItem);
   };
 
   return (

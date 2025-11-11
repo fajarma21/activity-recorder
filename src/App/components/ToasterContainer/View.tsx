@@ -1,17 +1,18 @@
-import Ticker from '@/components/Ticker';
-import getFullDate from '@/helpers/getFullDate';
-import useModalFormStore from '@/stores/useModalFormStore';
-import useTickerStore from '@/stores/useTickerStore';
 import dayjs from 'dayjs';
 
-const TickerContainer = () => {
-  const tickerList = useTickerStore((state) => state.tickerList);
-  const hideTicker = useTickerStore((state) => state.hideTicker);
+import Toaster from '@/components/Toaster';
+import getFullDate from '@/helpers/getFullDate';
+import useModalFormStore from '@/stores/useModalFormStore';
+import useToasterStore from '@/stores/useToasterStore';
+
+const ToasterContainer = () => {
+  const toasterList = useToasterStore((state) => state.toasterList);
+  const hideToaster = useToasterStore((state) => state.hideToaster);
   const openForm = useModalFormStore((state) => state.openForm);
 
   return (
     <>
-      {tickerList.map(
+      {toasterList.map(
         (
           { id, activityId, activityText, date, statusId, statusText },
           index
@@ -35,20 +36,20 @@ const TickerContainer = () => {
               status: true,
             },
             id,
-            onCloseCallback: hideTicker,
+            onCloseCallback: hideToaster,
           };
 
           return (
             index <= 1 && (
-              <Ticker
+              <Toaster
                 key={id}
                 isActive={index === 0}
                 title="Marked as done!"
                 onClickEdit={() => openForm(openParam)}
-                onClose={hideTicker}
+                onClose={hideToaster}
               >
                 <b>{activityText}</b> at {getFullDate(date)}
-              </Ticker>
+              </Toaster>
             )
           );
         }
@@ -57,4 +58,4 @@ const TickerContainer = () => {
   );
 };
 
-export default TickerContainer;
+export default ToasterContainer;

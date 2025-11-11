@@ -4,7 +4,9 @@ export const getGreetingData = () => {
     return 'morning';
   } else if (hour < 18) {
     return 'afternoon';
-  } else {
+  } else if (hour < 21) {
     return 'evening';
+  } else {
+    return 'night';
   }
 };
