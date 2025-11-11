@@ -53,14 +53,16 @@ const ToDo = ({ data }: ToDoProps) => {
       <Card>
         <>
           <ul>
-            {data.map((item) => (
-              <CheckList
-                key={item.id}
-                text={item.activityText}
-                subText={item.date ? getFullDate(item.date) : ''}
-                onChange={handleChange(item)}
-              />
-            ))}
+            {[...data]
+              .sort((a, b) => a.date - b.date)
+              .map((item) => (
+                <CheckList
+                  key={item.id}
+                  text={item.activityText}
+                  subText={item.date ? getFullDate(item.date) : ''}
+                  onChange={handleChange(item)}
+                />
+              ))}
           </ul>
           {displayRecap.length > 0 && <EstToDo data={displayRecap} />}
         </>

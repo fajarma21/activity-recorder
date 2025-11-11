@@ -1,6 +1,11 @@
+@use '@/styles/animation.scss' as animation;
+
+@include animation.listAppear;
+
 .container {
   position: relative;
   margin-bottom: 8px;
+  animation: listAppear 500ms ease-out forwards;
 
   p {
     margin: 0;

@@ -9,8 +9,6 @@ import ToDo from './components/ToDo';
 import css from './View.module.scss';
 import useModalFormStore from '@/stores/useModalFormStore';
 
-// TODO: sort by nearest date
-
 const App = () => {
   const displayModal = useModalFormStore((state) => state.display);
   const onCloseCallback = useModalFormStore((state) => state.onCloseCallback);
