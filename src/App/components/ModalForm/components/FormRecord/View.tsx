@@ -64,9 +64,7 @@ const FormRecord = ({ onClose }: FormRecordProps) => {
     if (isFormAdd) {
       addRecord(newRecord);
       if (newRecap) addRecap(newRecap);
-    } else {
-      updateRecord(id, newRecord);
-    }
+    } else updateRecord(id, newRecord);
 
     if (onClose) onClose();
 

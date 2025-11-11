@@ -28,10 +28,12 @@ const Content = ({
     const newItem = {
       ...item,
       date: determineDate(item.date),
-    };
-    updateStatus(item.id, newItem.date, {
       statusId: STATUS_DONE.value,
       statusText: STATUS_DONE.label,
+    };
+    updateStatus(item.id, newItem.date, {
+      statusId: newItem.statusId,
+      statusText: newItem.statusText,
     });
     addRecap({
       ...newItem,

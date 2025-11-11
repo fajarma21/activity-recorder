@@ -79,7 +79,7 @@
 
   &[data-time='morning'] {
     .spaceCircle {
-      background-color: #ffe9a6;
+      background: radial-gradient(#ffe9a6 20%, #ffe9a6 50%, transparent 70%);
     }
     .background {
       background: radial-gradient(at center 0%, #aeedff 50%, #fffbcb);
@@ -87,13 +87,15 @@
   }
   &[data-time='afternoon'] {
     .spaceCircle {
-      background-color: #ffe9a6;
+      background: radial-gradient(#fff0c1, #ffe9a6 30%, transparent 70%);
     }
     .background {
       background: radial-gradient(at center 0%, #87ceeb 50%, #e6f9ff);
     }
   }
-  &[data-time='evening'] {
+
+  &[data-time='evening'],
+  &[data-time='night'] {
     color: white;
 
     .spaceCircle {
@@ -105,6 +107,13 @@
         #dcdcdc
       );
     }
+  }
+  &[data-time='evening'] {
+    .background {
+      background: radial-gradient(at center 0%, #483475 50%, #753473);
+    }
+  }
+  &[data-time='night'] {
     .background {
       background: radial-gradient(at center 0%, #070b34 50%, #483475);
     }
