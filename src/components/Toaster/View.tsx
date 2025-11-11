@@ -4,27 +4,29 @@ import { FaRegPenToSquare } from 'react-icons/fa6';
 
 import css from './View.module.scss';
 import { TIMER_INTERVAL } from './View.constants';
-import type { TickerProps } from './View.types';
+import type { ToasterProps } from './View.types';
 
-const Ticker = ({
+const Toaster = ({
   children,
   isActive,
   title,
   onClickEdit,
   onClose,
-}: TickerProps) => {
+}: ToasterProps) => {
   const [display, setDisplay] = useState(true);
   const [stopCountdown, setStopCountdown] = useState(false);
 
-  const tickerRef = useRef<HTMLDivElement>(null);
+  const toasterRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>(null);
 
   useEffect(() => {
     if (!display) {
-      if (!tickerRef.current) return;
+      if (!toasterRef.current) return;
 
       Promise.all(
-        tickerRef.current.getAnimations().map((animation) => animation.finished)
+        toasterRef.current
+          .getAnimations()
+          .map((animation) => animation.finished)
       ).then(() => {
         onClose();
       });
@@ -65,7 +67,7 @@ const Ticker = ({
       data-active={isActive || undefined}
       onClick={handleClose}
     >
-      <div ref={tickerRef} className={css.inner} data-display={display}>
+      <div ref={toasterRef} className={css.inner} data-display={display}>
         <div
           className={css.lineTimer}
           data-play={!stopCountdown && isActive}
@@ -94,4 +96,4 @@ const Ticker = ({
   );
 };
 
-export default Ticker;
+export default Toaster;

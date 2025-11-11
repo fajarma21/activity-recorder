@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-export interface TickerProps {
+export interface ToasterProps {
   children?: ReactNode;
   isActive: boolean;
   title: string;

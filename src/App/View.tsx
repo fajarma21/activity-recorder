@@ -4,10 +4,12 @@ import useRecordStore from '@/stores/useRecordStore';
 
 import Finished from './components/Finished';
 import ModalForm from './components/ModalForm';
-import TickerContainer from './components/TickerContainer';
+import ToasterContainer from './components/ToasterContainer';
 import ToDo from './components/ToDo';
 import css from './View.module.scss';
 import useModalFormStore from '@/stores/useModalFormStore';
+
+// TODO: check edit date on toaster
 
 const App = () => {
   const displayModal = useModalFormStore((state) => state.display);
@@ -38,7 +40,7 @@ const App = () => {
 
       <ModalForm display={displayModal} onClose={handleCloseForm} />
 
-      <TickerContainer />
+      <ToasterContainer />
     </div>
   );
 };
