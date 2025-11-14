@@ -37,8 +37,6 @@ const FormRecord = ({ onClose }: FormRecordProps) => {
   const [form] = Form.useForm();
 
   const handleValueChange = (newValue: FormFields) => {
-    console.group('onchange', newValue);
-
     if (newValue.activity) {
       const newActivity = getSingleActivity(activities, newValue.activity);
       form.setFieldsValue({
@@ -47,13 +45,9 @@ const FormRecord = ({ onClose }: FormRecordProps) => {
     }
 
     if (newValue.status) setStatus(newValue.status.value);
-
-    console.groupEnd();
   };
 
   const handleSubmit: FormProps<FormFields>['onFinish'] = (values) => {
-    console.group('onsubmit', values);
-
     const { normalizedActivity, newRecord, newRecap } = getSubmitValue(
       values,
       activities
@@ -67,8 +61,6 @@ const FormRecord = ({ onClose }: FormRecordProps) => {
     } else updateRecord(id, newRecord);
 
     if (onClose) onClose();
-
-    console.groupEnd();
   };
 
   return (

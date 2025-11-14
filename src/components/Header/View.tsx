@@ -3,9 +3,11 @@ import dayjs from 'dayjs';
 import Clock from '../Clock';
 import { getGreetingData } from './View.helpers';
 import css from './View.module.scss';
+import useTime from '@/hooks/useTime';
 
 const Header = () => {
-  const greetingText = getGreetingData();
+  const time = useTime();
+  const greetingText = getGreetingData(Number(time.hour));
 
   return (
     <div className={css.wrapper} data-time={greetingText}>
@@ -17,7 +19,7 @@ const Header = () => {
             <b>Good {greetingText}!</b>
           </p>
         </div>
-        <Clock className={css.clock} />
+        <Clock className={css.clock} {...time} />
       </div>
       <div className={css.background}>
         <div />

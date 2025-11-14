@@ -1,5 +1,4 @@
-export const getGreetingData = () => {
-  const hour = new Date().getHours();
+export const getGreetingData = (hour: number) => {
   if (hour < 12) {
     return 'morning';
   } else if (hour < 18) {
