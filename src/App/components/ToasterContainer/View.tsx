@@ -2,13 +2,22 @@ import dayjs from 'dayjs';
 
 import Toaster from '@/components/Toaster';
 import getFullDate from '@/helpers/getFullDate';
+import useLastUpdateStore from '@/stores/useLastUpdateStore';
 import useModalFormStore from '@/stores/useModalFormStore';
 import useToasterStore from '@/stores/useToasterStore';
 
 const ToasterContainer = () => {
+  const removeLastUpdate = useLastUpdateStore(
+    (state) => state.removeLastUpdate
+  );
   const toasterList = useToasterStore((state) => state.toasterList);
   const hideToaster = useToasterStore((state) => state.hideToaster);
   const openForm = useModalFormStore((state) => state.openForm);
+
+  const handleCloseToaster = () => {
+    removeLastUpdate();
+    hideToaster();
+  };
 
   return (
     <>
@@ -36,7 +45,7 @@ const ToasterContainer = () => {
               status: true,
             },
             id,
-            onCloseCallback: hideToaster,
+            onCloseCallback: handleCloseToaster,
           };
 
           return (
@@ -46,7 +55,7 @@ const ToasterContainer = () => {
                 isActive={index === 0}
                 title="Marked as done!"
                 onClickEdit={() => openForm(openParam)}
-                onClose={hideToaster}
+                onClose={handleCloseToaster}
               >
                 <b>{activityText}</b> at {getFullDate(date)}
               </Toaster>

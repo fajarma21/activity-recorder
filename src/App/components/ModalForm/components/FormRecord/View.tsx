@@ -2,15 +2,18 @@ import { useState } from 'react';
 import { Button, Form } from 'antd';
 import type { FormProps } from 'antd';
 
-import DueDate from './components/DueDate';
-import SelectActivity from './components/SelectActivity';
-import SelectStatus from './components/SelectStatus';
 import { STATUS_VALUE_DONE, STATUS_VALUE_TODO } from '@/constants';
+import useActionRecap from '@/hooks/useActionRecap';
 import useActivityName from '@/stores/useActivityStore';
+import useLastUpdateStore from '@/stores/useLastUpdateStore';
 import useModalFormStore from '@/stores/useModalFormStore';
 import useRecordStore from '@/stores/useRecordStore';
 import useRecapStore from '@/stores/useRecapStore';
 import type { FormFields } from '@/types';
+
+import DueDate from './components/DueDate';
+import SelectActivity from './components/SelectActivity';
+import SelectStatus from './components/SelectStatus';
 
 import css from './View.module.scss';
 import { getSingleActivity, getSubmitValue } from './View.helpers';
@@ -21,11 +24,17 @@ const FormRecord = ({ onClose }: FormRecordProps) => {
   const initialData = useModalFormStore((state) => state.initialData);
   const disabled = useModalFormStore((state) => state.disabled);
 
+  const lastRecap = useLastUpdateStore((state) => state.lastRecap);
+
   const activities = useActivityName((state) => state.activities);
   const addActivity = useActivityName((state) => state.addActivity);
   const addRecord = useRecordStore((state) => state.addRecord);
   const updateRecord = useRecordStore((state) => state.updateRecord);
-  const addRecap = useRecapStore((state) => state.addRecap);
+
+  const recaps = useRecapStore((state) => state.recaps);
+  const updateRecap = useRecapStore((state) => state.updateRecap);
+
+  const { handleAddRecap } = useActionRecap(recaps);
 
   // form
   const isFormAdd = !id;
@@ -57,8 +66,11 @@ const FormRecord = ({ onClose }: FormRecordProps) => {
 
     if (isFormAdd) {
       addRecord(newRecord);
-      if (newRecap) addRecap(newRecap);
-    } else updateRecord(id, newRecord);
+      if (newRecap) handleAddRecap(newRecap);
+    } else {
+      updateRecord(id, newRecord);
+      updateRecap(id, newRecord, lastRecap);
+    }
 
     if (onClose) onClose();
   };

@@ -1,8 +1,9 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
+import { INIT_RECAP } from './index.constants';
+import { getEstDate } from './index.helpers';
 import type { RecapStore } from './index.types';
-import { STATUS_EST } from '@/constants';
 
 const useRecapStore = create<RecapStore>()(
   persist(
@@ -15,12 +16,9 @@ const useRecapStore = create<RecapStore>()(
           let newRecaps = [
             {
               ...newRecord,
-              count: 1,
+              ...INIT_RECAP,
               first: newRecord.date,
               latest: newRecord.date,
-              next: 0,
-              statusId: STATUS_EST.value,
-              statusText: STATUS_EST.label,
             },
             ...prevRecaps,
           ];
@@ -28,23 +26,15 @@ const useRecapStore = create<RecapStore>()(
           if (
             prevRecaps.some((item) => item.activityId === newRecord.activityId)
           ) {
-            newRecaps = prevRecaps.map((item2) => {
-              if (item2.activityId === newRecord.activityId) {
-                const newCount = item2.count + 1;
-                const newFirst =
-                  newRecord.date < item2.first ? newRecord.date : item2.first;
-                const newLatest =
-                  newRecord.date > item2.latest ? newRecord.date : item2.latest;
+            newRecaps = prevRecaps.map((item) => {
+              if (item.activityId === newRecord.activityId) {
                 return {
-                  ...item2,
+                  ...item,
+                  ...getEstDate(newRecord.date, item),
                   id: newRecord.id,
-                  count: newCount,
-                  first: newFirst,
-                  latest: newLatest,
-                  next: (newLatest - newFirst) / (newCount - 1) + newLatest,
                 };
               }
-              return item2;
+              return item;
             });
           }
 
@@ -52,6 +42,25 @@ const useRecapStore = create<RecapStore>()(
             recaps: newRecaps,
           };
         }),
+      updateRecap: (id, newRecord, lastRecap) =>
+        set((state) => ({
+          recaps: state.recaps.map((item) => {
+            if (item.id === id) {
+              if (lastRecap) {
+                return {
+                  ...item,
+                  ...getEstDate(newRecord.date, lastRecap),
+                };
+              }
+              return {
+                ...item,
+                first: newRecord.date,
+                latest: newRecord.date,
+              };
+            }
+            return item;
+          }),
+        })),
     }),
     {
       name: 'acrec-recaps',

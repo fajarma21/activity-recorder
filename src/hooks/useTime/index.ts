@@ -14,7 +14,6 @@ const useTime = () => {
     const h = normalizeDigit(new Date().getHours());
     const m = normalizeDigit(new Date().getMinutes());
     if (h !== time.hour || m !== time.minute) {
-      console.log('here');
       setTime({
         hour: h,
         minute: m,
