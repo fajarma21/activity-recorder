@@ -5,7 +5,7 @@ import CheckList from '@/components/CheckList';
 import { STATUS_DONE } from '@/constants';
 import determineDate from '@/helpers/determineDate';
 import getFullDate from '@/helpers/getFullDate';
-import useRecapStore from '@/stores/useRecapStore';
+import useActionRecap from '@/hooks/useActionRecap';
 import useRecordStore from '@/stores/useRecordStore';
 import useToasterStore from '@/stores/useToasterStore';
 import type { ActivityRecord } from '@/types';
@@ -20,9 +20,9 @@ const Content = ({
   onClickOpenForm,
 }: ContentProps) => {
   const showToaster = useToasterStore((state) => state.showToaster);
-
   const updateStatus = useRecordStore((state) => state.updateStatus);
-  const addRecap = useRecapStore((state) => state.addRecap);
+
+  const { handleAddRecap } = useActionRecap(estimationList);
 
   const handleChange = (item: ActivityRecord) => () => {
     const newItem = {
@@ -35,10 +35,8 @@ const Content = ({
       statusId: newItem.statusId,
       statusText: newItem.statusText,
     });
-    addRecap({
-      ...newItem,
-      id: Date.now(),
-    });
+
+    handleAddRecap(newItem);
 
     showToaster(newItem);
   };

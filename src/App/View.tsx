@@ -9,7 +9,7 @@ import ToDo from './components/ToDo';
 import css from './View.module.scss';
 import useModalFormStore from '@/stores/useModalFormStore';
 
-// TODO: check edit date on toaster
+// TODO: revamp button
 
 const App = () => {
   const displayModal = useModalFormStore((state) => state.display);
