@@ -9,16 +9,18 @@ const Finished = ({ data }: FinishedProps) => {
   return (
     <Card title="Finished Activities">
       <ul>
-        {data.map(
-          (item) =>
-            item.statusId === STATUS_VALUE_DONE && (
-              <ListItem
-                key={item.id}
-                text={item.activityText}
-                subText={getFullDate(item.date)}
-              />
-            )
-        )}
+        {[...data]
+          .sort((a, b) => b.date - a.date)
+          .map(
+            (item) =>
+              item.statusId === STATUS_VALUE_DONE && (
+                <ListItem
+                  key={item.id}
+                  text={item.activityText}
+                  subText={getFullDate(item.date)}
+                />
+              )
+          )}
       </ul>
     </Card>
   );

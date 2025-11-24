@@ -1,5 +1,3 @@
-import { Button } from 'antd';
-
 import Card from '@/components/Card';
 import CheckList from '@/components/CheckList';
 import { STATUS_DONE } from '@/constants';
@@ -13,6 +11,7 @@ import type { ActivityRecord } from '@/types';
 import EstToDo from './components/EstToDo';
 import css from './View.module.scss';
 import type { ContentProps } from './View.types';
+import { FaPlus } from 'react-icons/fa6';
 
 const Content = ({
   todoList,
@@ -59,9 +58,10 @@ const Content = ({
         {estimationList.length > 0 && <EstToDo data={estimationList} />}
       </>
       <div className={css.buttonContainer}>
-        <Button color="primary" variant="outlined" onClick={onClickOpenForm}>
-          Add Activity
-        </Button>
+        <button type="button" onClick={onClickOpenForm}>
+          <p>Add Activity</p>
+          <FaPlus size={14} />
+        </button>
       </div>
     </Card>
   );
