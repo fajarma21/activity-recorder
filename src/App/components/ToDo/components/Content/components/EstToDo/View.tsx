@@ -36,14 +36,16 @@ const EstToDo = ({ data }: EstToDoProps) => {
     <>
       <h3>Estimated next todo</h3>
       <ul>
-        {data.map((item) => (
-          <CheckList
-            key={item.id}
-            text={item.activityText}
-            subText={getFullDate(item.next)}
-            onChange={handleChange(item)}
-          />
-        ))}
+        {[...data]
+          .sort((a, b) => a.next - b.next)
+          .map((item) => (
+            <CheckList
+              key={item.id}
+              text={item.activityText}
+              subText={getFullDate(item.next)}
+              onChange={handleChange(item)}
+            />
+          ))}
       </ul>
     </>
   );
