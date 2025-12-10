@@ -1,4 +1,4 @@
 export interface ListItemProps {
-  text: string;
+  text?: string;
   subText?: string;
 }

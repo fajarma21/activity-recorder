@@ -1,0 +1,11 @@
+@use '@/styles/breakpoint.scss' as breakpoint;
+
+.options {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  > * {
+    margin-bottom: 0;
+  }
+}

@@ -12,6 +12,7 @@ import EstToDo from './components/EstToDo';
 import css from './View.module.scss';
 import type { ContentProps } from './View.types';
 import { FaPlus } from 'react-icons/fa6';
+import Button from '@/components/Button';
 
 const Content = ({
   todoList,
@@ -58,10 +59,10 @@ const Content = ({
         {estimationList.length > 0 && <EstToDo data={estimationList} />}
       </>
       <div className={css.buttonContainer}>
-        <button type="button" onClick={onClickOpenForm}>
+        <Button onClick={onClickOpenForm}>
           <p>Add Activity</p>
           <FaPlus size={14} />
-        </button>
+        </Button>
       </div>
     </Card>
   );
