@@ -1,6 +1,7 @@
 import Finished from '@/App/components/Finished';
-import ModalForm from '@/App/components/ModalForm';
+import FormRecord from '@/App/components/FormRecord';
 import ToDo from '@/App/components/ToDo';
+import Modal from '@/components/Modal';
 import { STATUS_VALUE_DONE, STATUS_VALUE_TODO } from '@/constants';
 import useModalFormStore from '@/stores/useModalFormStore';
 import useRecordStore from '@/stores/useRecordStore';
@@ -28,7 +29,9 @@ const Main = () => {
       <ToDo data={todoRecords} />
       {finishedRecords.length > 0 && <Finished data={finishedRecords} />}
 
-      <ModalForm display={displayModal} onClose={handleCloseForm} />
+      <Modal display={displayModal} onClose={handleCloseForm}>
+        <FormRecord onClose={handleCloseForm} />
+      </Modal>
     </>
   );
 };

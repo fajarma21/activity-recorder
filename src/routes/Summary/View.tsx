@@ -15,8 +15,6 @@ import {
 } from '@/constants';
 import type { SummaryFields } from '@/types';
 
-// TODO: mobile options
-
 const Summary = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
