@@ -1,0 +1,38 @@
+@use '@/styles/breakpoint.scss' as breakpoint;
+
+@keyframes kiwi {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  50% {
+    transform: rotateZ(-10deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 200px;
+  color: var(--gray-dark);
+
+  p {
+    font-size: 0.8rem;
+    margin: 8px 0 0;
+    @include breakpoint.moreThan480 {
+      font-size: 1rem;
+    }
+  }
+}
+
+.kiwiIcon {
+  transform-origin: 10px 30px;
+  &:hover {
+    animation: kiwi 1s infinite;
+  }
+}
