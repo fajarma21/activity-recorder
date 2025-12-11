@@ -1,0 +1,32 @@
+@use '@/styles/breakpoint.scss' as breakpoint;
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+
+  h1 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  @include breakpoint.moreThan480 {
+    justify-content: flex-start;
+  }
+}
+
+.backButton {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+
+  @include breakpoint.moreThan480 {
+    position: static;
+  }
+}

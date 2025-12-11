@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Button, Form } from 'antd';
-import type { FormProps } from 'antd';
 
 import { STATUS_VALUE_DONE, STATUS_VALUE_TODO } from '@/constants';
 import useActionRecap from '@/hooks/useActionRecap';
@@ -56,7 +55,7 @@ const FormRecord = ({ onClose }: FormRecordProps) => {
     if (newValue.status) setStatus(newValue.status.value);
   };
 
-  const handleSubmit: FormProps<FormFields>['onFinish'] = (values) => {
+  const handleSubmit = (values: FormFields) => {
     const { normalizedActivity, newRecord, newRecap } = getSubmitValue(
       values,
       activities

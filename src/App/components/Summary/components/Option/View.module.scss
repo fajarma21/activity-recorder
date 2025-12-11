@@ -1,0 +1,16 @@
+@use '@/styles/breakpoint.scss' as breakpoint;
+
+.wide {
+  display: none;
+  @include breakpoint.moreThan640 {
+    display: block;
+  }
+}
+
+.small {
+  display: block;
+  font-size: 0.875rem;
+  @include breakpoint.moreThan640 {
+    display: none;
+  }
+}

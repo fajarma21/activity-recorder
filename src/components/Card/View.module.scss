@@ -26,6 +26,9 @@
 
 .header {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 0 16px;
   margin: 0 0 8px;
   h2 {
@@ -33,16 +36,19 @@
     font-weight: normal;
     color: #0079c2;
   }
-  .desc {
+  .actionIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
     color: var(--gray-dark);
-    font-size: 0.8rem;
-    margin: 0;
   }
 }
 
 .container {
   position: relative;
   padding: 0 16px;
-  max-height: 50vh;
+  max-height: 60vh;
   overflow-y: auto;
 }

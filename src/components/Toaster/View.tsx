@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import type { CSSProperties, MouseEvent } from 'react';
 import { FaRegPenToSquare } from 'react-icons/fa6';
 
+import Button from '../Button';
 import css from './View.module.scss';
 import { TIMER_INTERVAL } from './View.constants';
 import type { ToasterProps } from './View.types';
@@ -82,14 +83,13 @@ const Toaster = ({
           <p className={css.desc}>{children}</p>
         </div>
         {onClickEdit && (
-          <button
-            type="button"
+          <Button
             className={css.editButton}
             aria-label="Edit"
             onClick={handleClickEdit}
           >
             <FaRegPenToSquare size={20} />
-          </button>
+          </Button>
         )}
       </div>
     </div>
