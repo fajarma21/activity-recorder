@@ -1,10 +1,11 @@
-import Finished from '@/App/components/Finished';
-import FormRecord from '@/App/components/FormRecord';
-import ToDo from '@/App/components/ToDo';
 import Modal from '@/components/Modal';
 import { STATUS_VALUE_DONE, STATUS_VALUE_TODO } from '@/constants';
 import useModalFormStore from '@/stores/useModalFormStore';
 import useRecordStore from '@/stores/useRecordStore';
+
+import Finished from './components/Finished';
+import FormRecord from './components/FormRecord';
+import ToDo from './components/ToDo';
 
 const Main = () => {
   const displayModal = useModalFormStore((state) => state.display);
