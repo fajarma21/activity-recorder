@@ -1,15 +1,15 @@
 import { BrowserRouter, Route, Routes } from 'react-router';
 
 import Header from '@/components/Header';
-import Main from '@/routes/Main';
-import NotFound from '@/routes/NotFound';
-import Summary from '@/routes/Summary';
 
+import NotFound from './components/NotFound';
+import Main from './components/Main';
+import Summary from './components/Summary';
 import ToasterContainer from './components/ToasterContainer';
 import css from './View.module.scss';
 
-// TODO: move routes to App
 // TODO: 404 page
+// TODO: summary filter
 // TODO: export summary to pdf
 
 const App = () => {
