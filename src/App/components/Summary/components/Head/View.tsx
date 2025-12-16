@@ -1,8 +1,9 @@
-import Button from '@/components/Button';
+import { useNavigate } from 'react-router';
 import { FaArrowLeft } from 'react-icons/fa6';
 
+import Button from '@/components/Button';
+
 import css from './View.module.scss';
-import { useNavigate } from 'react-router-dom';
 
 const Head = () => {
   const navigate = useNavigate();

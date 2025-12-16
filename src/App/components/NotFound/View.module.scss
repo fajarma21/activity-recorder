@@ -1,4 +1,14 @@
-.content {
-  position: relative;
-  z-index: 2;
+.container {
+  text-align: center;
+}
+
+.notFound {
+  font-size: 7rem;
+  margin: 96px 0 -16px;
+  color: var(--gray-blue);
+}
+
+.desc {
+  margin: 0 0 16px;
+  color: var(--gray-dark);
 }
