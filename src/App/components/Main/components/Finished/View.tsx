@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import { FaRegFileLines } from 'react-icons/fa6';
 
 import Card from '@/components/Card';
