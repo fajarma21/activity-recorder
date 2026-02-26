@@ -36,11 +36,12 @@ const useRecordStore = create<RecordStore>()(
             return item;
           }),
         })),
+      replaceRecords: (records) => set(() => ({ records })),
     }),
     {
       name: 'acrec-records',
-    }
-  )
+    },
+  ),
 );
 
 export default useRecordStore;

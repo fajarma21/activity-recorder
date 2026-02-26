@@ -35,7 +35,7 @@ const Summary = () => {
   } as SummaryFields;
 
   const records = useRecordStore((state) => state.records).filter(
-    (item) => item.statusId === STATUS_VALUE_DONE
+    (item) => item.statusId === STATUS_VALUE_DONE,
   );
 
   return (

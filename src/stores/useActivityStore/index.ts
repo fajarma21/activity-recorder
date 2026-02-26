@@ -11,7 +11,7 @@ const useActivityStore = create<ActivityStore>()(
         set((state) => {
           if (
             !state.activities.some(
-              (item) => item.activityId === activity.activityId
+              (item) => item.activityId === activity.activityId,
             )
           ) {
             return {
@@ -22,11 +22,12 @@ const useActivityStore = create<ActivityStore>()(
             activities: state.activities,
           };
         }),
+      replaceActivities: (activities) => set(() => ({ activities })),
     }),
     {
       name: 'acrec-activities',
-    }
-  )
+    },
+  ),
 );
 
 export default useActivityStore;

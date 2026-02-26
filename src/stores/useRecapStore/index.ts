@@ -61,11 +61,12 @@ const useRecapStore = create<RecapStore>()(
             return item;
           }),
         })),
+      replaceRecaps: (recaps) => set(() => ({ recaps })),
     }),
     {
       name: 'acrec-recaps',
-    }
-  )
+    },
+  ),
 );
 
 export default useRecapStore;

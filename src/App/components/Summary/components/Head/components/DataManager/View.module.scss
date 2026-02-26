@@ -1,0 +1,17 @@
+.waringText {
+  margin: 8px 0;
+  padding: 8px;
+  border-radius: 6px;
+  background-color: beige;
+
+  p {
+    margin: 0;
+  }
+}
+
+.btnContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0;
+}
