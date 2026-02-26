@@ -1,4 +1,5 @@
 @use '@/styles/animation.scss' as animation;
+@use '@/styles/breakpoint.scss' as breakpoint;
 
 @include animation.listAppear;
 
@@ -15,7 +16,7 @@
     margin: 0;
   }
 
-  &:hover {
+  @include breakpoint.hover {
     background-color: #e0ffff;
     border-color: #beeeee;
   }

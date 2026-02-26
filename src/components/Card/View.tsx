@@ -7,6 +7,7 @@ import type { CardProps } from './View.types';
 const Card = ({
   actionIcon,
   children,
+  className,
   contentClassName = '',
   title,
   onClickAction,
@@ -14,7 +15,7 @@ const Card = ({
   const [content, footer] = Children.toArray(children);
 
   return (
-    <div className={css.card}>
+    <div className={`${css.card} ${className}`}>
       {title && (
         <div className={css.header}>
           <h2>{title}</h2>

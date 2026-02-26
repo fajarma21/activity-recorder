@@ -1,5 +1,6 @@
 .card {
   position: relative;
+  overflow: hidden;
   padding: 16px 0;
   margin-bottom: 16px;
   border-radius: 8px;
@@ -19,8 +20,9 @@
 
   h3 {
     margin: 8px 0;
+    font-size: 1rem;
     font-weight: normal;
-    color: #4b5a64;
+    color: #0079c2;
   }
 }
 
@@ -33,6 +35,7 @@
   margin: 0 0 8px;
   h2 {
     margin: 0;
+    font-size: 1rem;
     font-weight: normal;
     color: #0079c2;
   }

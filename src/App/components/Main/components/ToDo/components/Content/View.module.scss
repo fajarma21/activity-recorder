@@ -14,7 +14,7 @@
     height: 48px;
     border-radius: 50%;
     color: white;
-    background-color: #1677ff;
+    background-color: var(--antd-blue);
     box-shadow: 0 5px 10px 0px rgba(167, 202, 216, 0.5);
     z-index: 1;
 
@@ -37,9 +37,9 @@
       height: 40px;
       padding: 0 16px;
       border-radius: 20px;
-      color: #1677ff;
+      color: var(--antd-blue);
       background-color: white;
-      border: 1px solid #1677ff;
+      border: 1px solid var(--antd-blue);
       transition: 250ms all;
 
       p {
@@ -47,9 +47,9 @@
         font-size: 0.875rem;
       }
 
-      &:hover {
+      @include breakpoint.hover {
         color: white;
-        background-color: #1677ff;
+        background-color: var(--antd-blue);
       }
     }
   }

@@ -13,7 +13,7 @@ const Finished = ({ data }: FinishedProps) => {
 
   return (
     <Card
-      title="Finished Activities"
+      title="Finished"
       actionIcon={<FaRegFileLines size={24} />}
       onClickAction={() =>
         navigate({
@@ -33,7 +33,7 @@ const Finished = ({ data }: FinishedProps) => {
                   text={item.activityText}
                   subText={getFullDate(item.date)}
                 />
-              )
+              ),
           )}
       </ul>
     </Card>

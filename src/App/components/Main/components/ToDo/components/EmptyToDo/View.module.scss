@@ -8,5 +8,10 @@
 
   p {
     margin: 8px 0 16px;
+
+    a {
+      font-weight: normal;
+      color: var(--antd-blue);
+    }
   }
 }

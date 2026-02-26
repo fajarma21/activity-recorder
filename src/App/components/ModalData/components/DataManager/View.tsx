@@ -9,7 +9,7 @@ import { downloadFile } from './View.helpers';
 import css from './View.module.scss';
 import type { DataManagerProps } from './View.types';
 
-const DataManager = ({ onClose }: DataManagerProps) => {
+const DataManager = ({ onlyImport, onClose }: DataManagerProps) => {
   const records = useRecordStore((state) => state.records);
   const replaceRecords = useRecordStore((state) => state.replaceRecords);
 
@@ -102,15 +102,22 @@ const DataManager = ({ onClose }: DataManagerProps) => {
           </>
         )}
       </Form.Item>
-      <Form.Item label="Export">
-        <Button block color="magenta" variant="outlined" onClick={handleExport}>
-          Export Data
-        </Button>
-      </Form.Item>
+      {!onlyImport && (
+        <Form.Item label="Export">
+          <Button
+            block
+            color="magenta"
+            variant="outlined"
+            onClick={handleExport}
+          >
+            Export Data
+          </Button>
+        </Form.Item>
+      )}
 
       <Form.Item className={css.btnContainer}>
         <Button color="primary" variant="outlined" onClick={onClose}>
-          Done
+          Close
         </Button>
       </Form.Item>
     </Form>

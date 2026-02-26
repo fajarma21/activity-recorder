@@ -2,7 +2,7 @@ import Card from '@/components/Card';
 
 import css from './View.module.scss';
 import type { OptionProps } from './View.types';
-import OptionForm from './components/OptionForm/View';
+import OptionForm from './components/OptionForm';
 import SmallOption from './components/SmallOption';
 
 const Option = ({ urlParams, onChangeParams }: OptionProps) => {
