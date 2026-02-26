@@ -8,9 +8,8 @@ import Summary from './components/Summary';
 import ToasterContainer from './components/ToasterContainer';
 import css from './View.module.scss';
 
-// TODO: 404 page
 // TODO: summary filter
-// TODO: export summary to pdf
+// TODO: scroll load more
 
 const App = () => {
   return (

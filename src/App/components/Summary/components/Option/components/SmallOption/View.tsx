@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaGear } from 'react-icons/fa6';
+import { FaFilter } from 'react-icons/fa6';
 
 import Button from '@/components/Button';
 import Modal from '@/components/Modal';
@@ -37,7 +37,7 @@ const SmallOption = ({ urlParams, onSubmit }: SmallOptionProps) => {
           </span>
         </span>
         <Button className={css.formBtn} onClick={() => setDisplayForm(true)}>
-          <FaGear size={14} />
+          <FaFilter size={16} />
         </Button>
       </div>
 
